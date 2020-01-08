@@ -19,7 +19,7 @@ namespace PhotographyOverlayAttempt2.CustomViews
             propertyName: "Camera",
             returnType: typeof(CameraOptions),
             declaringType: typeof(CameraPreview),
-            defaultValue: CameraOptions.Rear);
+            defaultValue: CameraOptions.Front);
 
         public CameraOptions Camera
         {

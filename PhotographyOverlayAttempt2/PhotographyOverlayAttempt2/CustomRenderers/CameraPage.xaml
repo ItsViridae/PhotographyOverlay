@@ -6,23 +6,20 @@
              xmlns:cameraView="clr-namespace:PhotographyOverlayAttempt2.CustomViews"
              mc:Ignorable="d"
              x:Class="PhotographyOverlayAttempt2.CustomRenderers.CameraPage">
-    <ContentPage.Content>
-        <StackLayout>
-            <cameraView:CameraPreview  
+
+    <ContentPage.Resources>
+        
+    </ContentPage.Resources>
+    
+    <StackLayout>
+        <cameraView:CameraPreview  
                     x:Name="CameraPreview"           
                     BackgroundColor="Black"
                     HorizontalOptions="FillAndExpand"
-                    Camera="Rear"                                         
+                    Camera="Front"                                         
                     Margin="0,0,0,0"
                     VerticalOptions="FillAndExpand"
                     Grid.Column="0" Grid.Row="0">
-            </cameraView:CameraPreview>
-            <Button HeightRequest="84"
-                            Text="Take Picture"
-                            x:Name="CameraButton"
-                            Clicked="OnCameraClicked" 
-                            FontSize="Medium"
-                            WidthRequest="84"/>
-        </StackLayout>
-    </ContentPage.Content>
+        </cameraView:CameraPreview>
+    </StackLayout>
 </ContentPage>
