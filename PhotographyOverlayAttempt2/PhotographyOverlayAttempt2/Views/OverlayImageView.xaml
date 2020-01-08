@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converters="clr-namespace:PhotographyOverlayAttempt2.Converters"
+             mc:Ignorable="d"
+             x:Class="PhotographyOverlayAttempt2.Views.OverlayImageView"
+             Title="Overlay Image Should appear">
+
+    <ContentPage.Resources>
+        <converters:BytesToImageConverter x:Key="ToImage" />
+        <converters:BytesToImageConverter x:Key="OverlayImage" />
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout>
+                <Label Text="OverlayImageView"/>
+                <Image Source="{Binding PhotoBytes, Converter={StaticResource OverlayImage}}" Aspect="AspectFill" Opacity="80"/>
+            </StackLayout>
+            
+            <StackLayout>
+                <Image Source="{Binding PhotoBytes, Converter={StaticResource ToImage}}" Aspect="AspectFill" Opacity="100"/>
+            </StackLayout>
+            
+            <Button BackgroundColor="DodgerBlue"
+                FontSize="30"
+                Text="Set And Continue"
+                TextColor="White"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
