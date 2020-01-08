@@ -25,11 +25,11 @@ namespace PhotographyOverlayAttempt2
         {
             InitializeComponent();
 
-            var cameraPageModel = new CameraPage();
+            //var cameraPageModel = new CameraPage();
 
             
-            var navigationPage = new NavigationPage(cameraPageModel);
-            ViewModel.Navigation = navigationPage.Navigation;
+            //var navigationPage = new NavigationPage(cameraPageModel);
+            //ViewModel.Navigation = navigationPage.Navigation;
 
             Task.Run(async () => await StartCameraOnStartup());
         }
