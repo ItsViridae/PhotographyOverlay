@@ -23,9 +23,5 @@ namespace PhotographyOverlayAttempt2.Views
             BindingContext = viewModel;
             NavigationPage.SetBackButtonTitle(this, string.Empty);
         }
-        async void OnTakePhotoButtonClicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new CameraPage());
-        }
     }
 }

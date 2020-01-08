@@ -1,4 +1,5 @@
 ﻿using PhotographyOverlayAttempt2.CustomRenderers;
+using PhotographyOverlayAttempt2.CustomViews;
 using PhotographyOverlayAttempt2.ViewModels;
 using PhotographyOverlayAttempt2.Views;
 using Plugin.Permissions;
@@ -26,6 +27,7 @@ namespace PhotographyOverlayAttempt2
 
             var cameraPageModel = new CameraPage();
 
+            
             var navigationPage = new NavigationPage(cameraPageModel);
             ViewModel.Navigation = navigationPage.Navigation;
 

@@ -15,9 +15,6 @@ namespace PhotographyOverlayAttempt2
 
             MainPage = new MainPage();
 
-            //var mainViewModel = new MainViewModel();
-            //var mainView = new MainView(mainViewModel);
-
             //Create Camera Page to Pass on Load
             var cameraPageModel = new CameraPage();
 

@@ -74,6 +74,7 @@
     <Compile Include="Camera2\CameraStateListener.cs" />
     <Compile Include="Camera2\CameraViewServiceRenderer.cs" />
     <Compile Include="Camera2\ImageAvailableListener.cs" />
+    <Compile Include="Effects\AndroidTransparentButtonEffect.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="CameraPageRenderer.cs" />
     <Compile Include="Resources\Resource.designer.cs" />

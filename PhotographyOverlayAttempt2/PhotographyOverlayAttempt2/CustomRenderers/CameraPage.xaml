@@ -7,10 +7,6 @@
              mc:Ignorable="d"
              x:Class="PhotographyOverlayAttempt2.CustomRenderers.CameraPage">
 
-    <ContentPage.Resources>
-        
-    </ContentPage.Resources>
-    
     <StackLayout>
         <cameraView:CameraPreview  
                     x:Name="CameraPreview"           
@@ -21,5 +17,6 @@
                     VerticalOptions="FillAndExpand"
                     Grid.Column="0" Grid.Row="0">
         </cameraView:CameraPreview>
+        <cameraView:ButtonView />
     </StackLayout>
 </ContentPage>
