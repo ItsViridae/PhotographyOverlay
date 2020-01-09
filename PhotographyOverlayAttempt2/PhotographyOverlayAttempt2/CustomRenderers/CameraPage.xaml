@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:cameraView="clr-namespace:PhotographyOverlayAttempt2.CustomViews"
+             xmlns:cameraViews="clr-namespace:PhotographyOverlayAttempt2.CustomViews"
              mc:Ignorable="d"
              x:Class="PhotographyOverlayAttempt2.CustomRenderers.CameraPage">
 
-    <StackLayout>
-        <cameraView:CameraPreview  
+    <Grid>
+        <cameraViews:CameraPreview  
                     x:Name="CameraPreview"           
                     BackgroundColor="Black"
                     HorizontalOptions="FillAndExpand"
@@ -16,7 +16,7 @@
                     Margin="0,0,0,0"
                     VerticalOptions="FillAndExpand"
                     Grid.Column="0" Grid.Row="0">
-        </cameraView:CameraPreview>
-        <cameraView:ButtonView />
-    </StackLayout>
+        </cameraViews:CameraPreview>
+        <cameraViews:ButtonView />
+    </Grid>
 </ContentPage>

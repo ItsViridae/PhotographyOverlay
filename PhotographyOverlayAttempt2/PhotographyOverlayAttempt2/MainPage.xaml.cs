@@ -24,19 +24,6 @@ namespace PhotographyOverlayAttempt2
         public MainPage()
         {
             InitializeComponent();
-
-            //var cameraPageModel = new CameraPage();
-
-            
-            //var navigationPage = new NavigationPage(cameraPageModel);
-            //ViewModel.Navigation = navigationPage.Navigation;
-
-            Task.Run(async () => await StartCameraOnStartup());
-        }
-
-        public async Task StartCameraOnStartup()
-        {
-            await Navigation.PushAsync(new CameraPage());
         }
 
         async void OnTakePhotoButtonClicked(object sender, EventArgs e)

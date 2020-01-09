@@ -13,6 +13,11 @@ namespace PhotographyOverlayAttempt2
         {
             InitializeComponent();
 
+        }
+
+        protected override void OnStart()
+        {
+
             MainPage = new MainPage();
 
             //Create Camera Page to Pass on Load
@@ -22,11 +27,6 @@ namespace PhotographyOverlayAttempt2
             ViewModel.Navigation = navigationPage.Navigation;
 
             MainPage = navigationPage;
-        }
-
-        protected override void OnStart()
-        {
-
         }
 
         protected override void OnSleep()
