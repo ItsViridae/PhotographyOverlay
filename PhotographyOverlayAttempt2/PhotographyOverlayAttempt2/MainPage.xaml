@@ -5,17 +5,5 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="PhotographyOverlayAttempt2.MainPage">
-    
-    <ContentPage.Content>
-        <StackLayout>
-    
-        <!--<Button Clicked="OnTakePhotoButtonClicked"
-                FontSize="36"
-                Text="TakePhoto Button"
-                TextColor="White"
-                Margin="18"
-                VerticalOptions="Center"/>
-        <Button x:Name="takePhotoButton" Text="Take Photos" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" Clicked="OnTakePhotoButtonClicked" />-->
-        </StackLayout>
-    </ContentPage.Content>
+
 </ContentPage>

@@ -17,6 +17,6 @@
                     VerticalOptions="FillAndExpand"
                     Grid.Column="0" Grid.Row="0">
         </cameraViews:CameraPreview>
-        <cameraViews:ButtonView />
+        <cameraViews:ButtonView VerticalOptions="End" x:Name="PhotoButton"/>
     </Grid>
 </ContentPage>

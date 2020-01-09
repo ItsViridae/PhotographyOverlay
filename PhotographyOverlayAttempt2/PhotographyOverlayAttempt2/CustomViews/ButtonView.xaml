@@ -4,21 +4,23 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:effects="clr-namespace:PhotographyOverlayAttempt2.Effects"
+             xmlns:flex="clr-namespace:Flex.Controls;assembly=Flex"
              mc:Ignorable="d"
              x:Class="PhotographyOverlayAttempt2.CustomViews.ButtonView">
   <ContentView.Content>
         <StackLayout>
-            <Button 
-                    BackgroundColor="Transparent"
-                    Text="orange"
-                    TextColor="Orange"
-                    HorizontalOptions="Center"
-                    BorderColor="DarkRed" 
-                    BorderWidth="0">
-                <Button.Effects>
-                    <effects:TransparentButtonEffect />
-                </Button.Effects>
-            </Button>
+            <flex:FlexButton
+                WidthRequest="76"
+                HeightRequest="76"
+                CornerRadius="38"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                ForegroundColor="#ffffff"
+                HasShadow="true"
+                HighlightForegroundColor="#49516F"
+                BackgroundColor="#6279B8"
+                HighlightBackgroundColor="#8EA4D2"
+                Clicked="FlexButton_Clicked"/>
         </StackLayout>
   </ContentView.Content>
 </ContentView>
