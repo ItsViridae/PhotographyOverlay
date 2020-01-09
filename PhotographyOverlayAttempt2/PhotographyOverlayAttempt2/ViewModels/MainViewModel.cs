@@ -42,14 +42,14 @@ namespace PhotographyOverlayAttempt2.ViewModels
             var stream = photo.GetStream();
             _bytes = ReadFully(stream);
 
-            var imageToView = new NewImage()
+            var imageToView = new OverlayImage()
             {
                 PhotoBytes = _bytes
             };
 
             //do somthing ... like show the image
             var view = new ResultView(imageToView);
-            ((NewImageViewModel)view.BindingContext).Initialize(imageToView);
+            ((OverlayImageViewModel)view.BindingContext).Initialize(imageToView);
 
             Navigation.PushAsync(view);
         }
@@ -61,31 +61,6 @@ namespace PhotographyOverlayAttempt2.ViewModels
                 inputStream.CopyTo(memoryStream);
                 return memoryStream.ToArray();
             }
-        }
-
-        private void HandlePhotoForOverLay(MediaFile photo)
-        {
-            if (photo == null)
-            {
-                return;
-            }
-
-            var stream = photo.GetStream();
-            _bytes = ReadFully(stream);
-
-            var imageToView = new OverlayImage()
-            {
-                PhotoBytes = _bytes
-            };
-
-            //Get Opacity
-            
-
-            //show the image
-            var view = new OverlayImageView(imageToView);
-            ((OverlayImageViewModel)view.BindingContext).Initialize(imageToView);
-
-            Navigation.PushAsync(view);
         }
 
         public ICommand TakePhoto => new Command(async () =>

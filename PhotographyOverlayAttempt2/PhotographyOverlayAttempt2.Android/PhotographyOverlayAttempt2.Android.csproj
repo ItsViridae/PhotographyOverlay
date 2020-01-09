@@ -66,7 +66,6 @@
     <PackageReference Include="Xamarin.Essentials" Version="1.4.0-pre" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CallAPI.cs" />
     <Compile Include="Camera2\CameraCaptureListener.cs" />
     <Compile Include="Camera2\CameraCaptureStateListener.cs" />
     <Compile Include="Camera2\CameraCaptureStillPictureSessionCallback.cs" />

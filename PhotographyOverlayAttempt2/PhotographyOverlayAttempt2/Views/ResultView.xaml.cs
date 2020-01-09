@@ -12,10 +12,11 @@ namespace PhotographyOverlayAttempt2.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResultView : ContentPage
     {
-        public ResultView(NewImage image)
+        public ResultView(OverlayImage newImage)
         {
+            //var newImage = new OverlayImage();
             InitializeComponent();
-            BindingContext = image;
+            BindingContext = newImage;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhotographyOverlayAttempt2.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,14 +8,15 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace PhotographyOverlayAttempt2.CustomNavPages
+namespace PhotographyOverlayAttempt2.CustomViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CustomNavigationPage : ContentPage
+    public partial class SelectImageOverlay : ContentView
     {
-        public CustomNavigationPage()
+        public SelectImageOverlay()
         {
             InitializeComponent();
+            BindingContext = new OverlayImageViewModel();
         }
     }
 }

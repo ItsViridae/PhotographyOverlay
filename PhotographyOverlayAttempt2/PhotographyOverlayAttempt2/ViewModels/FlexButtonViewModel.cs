@@ -16,7 +16,6 @@ namespace PhotographyOverlayAttempt2.ViewModels
     public class FlexButtonViewModel : ViewModel
     {
         public bool IsButtonEnabled = true;
-        private byte[] _bytes;
 
         bool isToggled;
         public bool IsToggled
@@ -33,48 +32,7 @@ namespace PhotographyOverlayAttempt2.ViewModels
         }, () => IsButtonEnabled));
 
         // Implementation of INotifyPropertyChanged
-        public event PropertyChangedEventHandler PropertyChanged;
-        void OnPropertyChanged([CallerMemberName] string name = null) => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
-
-        public async Task TakePhotoTask()
-        {
-            var photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions()
-            {
-                DefaultCamera = CameraDevice.Rear
-            });
-
-            HandlePhoto(photo);
-        }
-
-        private void HandlePhoto(MediaFile photo)
-        {
-            if (photo == null)
-            {
-                return;
-            }
-
-            var stream = photo.GetStream();
-            _bytes = ReadFully(stream);
-
-            var imageToView = new NewImage()
-            {
-                PhotoBytes = _bytes
-            };
-
-            //do somthing ... like show the image
-            var view = new ResultView(imageToView);
-            ((NewImageViewModel)view.BindingContext).Initialize(imageToView);
-
-            Navigation.PushAsync(view);
-        }
-
-        private byte[] ReadFully(Stream inputStream)
-        {
-            using (MemoryStream memoryStream = new MemoryStream())
-            {
-                inputStream.CopyTo(memoryStream);
-                return memoryStream.ToArray();
-            }
-        }
+        public event PropertyChangedEventHandler CustomPropertyChanged;
+        void OnPropertyChanged([CallerMemberName] string name = null) => CustomPropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 }
