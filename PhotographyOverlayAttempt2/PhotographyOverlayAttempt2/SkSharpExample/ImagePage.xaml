@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:skia1="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             mc:Ignorable="d"
+             x:Class="PhotographyOverlayAttempt2.SkSharpExample.ImagePage"
+             Title="BitMap Dissolve Image">
+    <ContentPage.Content>
+        <StackLayout>
+            <skia1:SKCanvasView x:Name="canvasView"
+                           VerticalOptions="FillAndExpand"
+                           PaintSurface="OnCanvasViewPaintSurface" />
+
+            <Slider x:Name="progressSlider"
+                Margin="10"
+                ValueChanged="OnSliderValueChanged" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
