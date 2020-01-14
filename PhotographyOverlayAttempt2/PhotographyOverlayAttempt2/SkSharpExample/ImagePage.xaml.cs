@@ -10,7 +10,6 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -19,20 +18,27 @@ namespace PhotographyOverlayAttempt2.SkSharpExample
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ImagePage : ContentPage
     {
-        SKBitmap imageBitmap;
-        Stream photoStream;
+        SKBitmap ImageBitmap { get; set; }
+        Stream PhotoStream { get; set; }
+        MediaFile PhotoFile { get; set; }
 
         public ImagePage()
         {
-            //InitializeComponent();
-            // Load two bitmaps
+            InitializeComponent();
+
             Assembly assembly = GetType().GetTypeInfo().Assembly;
 
+            // Load 1 bitmaps for the overlay Image
             GetPhotoForStream();
 
-            using (Stream stream = photoStream)
+            if(PhotoStream == null)
             {
-                imageBitmap = SKBitmap.Decode(stream);
+                PhotoStream = PhotoFile.GetStream();
+            }
+
+            using (Stream stream = new MemoryStream())
+            {
+                ImageBitmap = SKBitmap.Decode(stream);
             }
         }
 
@@ -50,10 +56,10 @@ namespace PhotographyOverlayAttempt2.SkSharpExample
             canvas.Clear();
 
             // Find rectangle to fit bitmap
-            float scale = Math.Min((float)info.Width / imageBitmap.Width,
-                                   (float)info.Height / imageBitmap.Height);
-            SKRect rect = SKRect.Create(scale * imageBitmap.Width,
-                                        scale * imageBitmap.Height);
+            float scale = Math.Min((float)info.Width / ImageBitmap.Width,
+                                   (float)info.Height / ImageBitmap.Height);
+            SKRect rect = SKRect.Create(scale * ImageBitmap.Width,
+                                        scale * ImageBitmap.Height);
             float x = (info.Width - rect.Width) / 2;
             float y = (info.Height - rect.Height) / 2;
             rect.Offset(x, y);
@@ -65,16 +71,16 @@ namespace PhotographyOverlayAttempt2.SkSharpExample
             using (SKPaint paint = new SKPaint())
             {
                 paint.Color = paint.Color.WithAlpha((byte)(0xFF * (1 - progress)));
-                canvas.DrawBitmap(imageBitmap, rect, paint);
+                canvas.DrawBitmap(ImageBitmap, rect, paint);
 
                 //paint.Color = paint.Color.WithAlpha((byte)(0xFF * progress));
                 //canvas.DrawBitmap(imageBitmap, rect, paint);
             }
         }
-        public async void GetPhotoForStream()
+        public async Task GetPhotoForStream()
         {
             var photo = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
-            photoStream = photo.GetStream();
+            PhotoFile = photo;
         }
     }
 }

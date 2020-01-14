@@ -8,7 +8,7 @@
              x:Class="PhotographyOverlayAttempt2.CustomRenderers.CameraPage">
 
     <Grid>
-        <cameraViews:CameraPreview  
+        <cameraViews:CameraPreview 
                     x:Name="CameraPreview"           
                     BackgroundColor="Black"
                     HorizontalOptions="FillAndExpand"
@@ -18,5 +18,6 @@
                     Grid.Column="0" Grid.Row="0">
         </cameraViews:CameraPreview>
         <cameraViews:ButtonView VerticalOptions="End" x:Name="PhotoButton"/>
+        <Button VerticalOptions="End" HorizontalOptions="End" Clicked="OnClick_CancelPhotoFeed"/>
     </Grid>
 </ContentPage>

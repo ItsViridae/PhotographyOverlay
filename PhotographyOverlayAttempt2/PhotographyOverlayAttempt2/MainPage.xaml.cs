@@ -31,6 +31,7 @@ namespace PhotographyOverlayAttempt2
             await Navigation.PushAsync(new CameraPage());
         }
 
+
         async protected override void OnAppearing()
         {
             base.OnAppearing();

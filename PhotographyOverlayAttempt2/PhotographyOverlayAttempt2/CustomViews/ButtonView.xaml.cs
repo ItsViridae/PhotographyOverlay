@@ -18,11 +18,11 @@ namespace PhotographyOverlayAttempt2.CustomViews
             BindingContext = new FlexButtonViewModel();
         }
 
-        void FlexButton_Clicked(object sender, EventArgs e)
+        async void FlexButton_Clicked(object sender, EventArgs e)
         {
             // TODO: #7) Make Button Save and Photo 
-            //((FlexButtonViewModel)BindingContext).IsButtonEnabled = !((FlexButtonViewModel)BindingContext).IsButtonEnabled;
-            //((FlexButtonViewModel)BindingContext).ButtonClickedCommand.ChangeCanExecute();
+            ((FlexButtonViewModel)BindingContext).IsButtonEnabled = !((FlexButtonViewModel)BindingContext).IsButtonEnabled;
+            ((FlexButtonViewModel)BindingContext).ButtonClickedCommand.ChangeCanExecute();
             //await ((FlexButtonViewModel)BindingContext).TakePhotoTask();
         }
     }
