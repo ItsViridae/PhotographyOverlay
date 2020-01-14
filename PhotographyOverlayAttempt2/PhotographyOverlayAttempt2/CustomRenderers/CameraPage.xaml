@@ -17,7 +17,12 @@
                     VerticalOptions="FillAndExpand"
                     Grid.Column="0" Grid.Row="0">
         </cameraViews:CameraPreview>
-        <cameraViews:ButtonView VerticalOptions="End" x:Name="PhotoButton"/>
-        <Button VerticalOptions="End" HorizontalOptions="End" Clicked="OnClick_CancelPhotoFeed"/>
+        <cameraViews:ButtonView 
+            VerticalOptions="End" 
+            x:Name="PhotoButton"/>
+        <Button VerticalOptions="End" 
+                HorizontalOptions="End" 
+                Clicked="OnClick_CancelPhotoFeed" 
+                Text="Pick"/>
     </Grid>
 </ContentPage>

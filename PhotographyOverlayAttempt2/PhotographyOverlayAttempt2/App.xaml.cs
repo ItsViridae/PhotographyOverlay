@@ -18,20 +18,12 @@ namespace PhotographyOverlayAttempt2
 
         protected override void OnStart()
         {
-
             MainPage = new MainPage();
-
-            //Create Camera Page to Pass on Load
 
             #region Creating Navigational Pages
 
             var navigationCameraPage = new NavigationPage(new CameraPage());
             ViewModel.Navigation = navigationCameraPage.Navigation;
-            var navigationImagePage = new NavigationPage(new GetImagePage());
-            ViewModel.Navigation = navigationImagePage.Navigation;
-            //ViewModel.Navigation.PushAsync(navigationCameraPage);
-            //ViewModel.Navigation.PushAsync(navigationImagePage);
-
 
             MainPage = navigationCameraPage;
             #endregion

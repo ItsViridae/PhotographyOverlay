@@ -7,9 +7,7 @@
              x:Class="PhotographyOverlayAttempt2.CustomRenderers.GetImagePage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label Text="I should Display a Image you have selected Here... Soon" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

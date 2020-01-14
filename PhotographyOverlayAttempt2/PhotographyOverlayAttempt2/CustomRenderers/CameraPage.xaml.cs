@@ -22,7 +22,7 @@ namespace PhotographyOverlayAttempt2.CustomRenderers
 
         void OnCameraClicked(object sender, EventArgs e)
         {
-            CameraPreview.CameraClick?.Execute(null);
+            CameraPreview.CameraClick.Execute(null);
         }
 
         private void OnPictureFinished()

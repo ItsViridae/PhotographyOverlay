@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhotographyOverlayAttempt2.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace PhotographyOverlayAttempt2.CustomRenderers
         public GetImagePage()
         {
             InitializeComponent();
+            BindingContext = new GetImageViewModel();
         }
     }
 }
