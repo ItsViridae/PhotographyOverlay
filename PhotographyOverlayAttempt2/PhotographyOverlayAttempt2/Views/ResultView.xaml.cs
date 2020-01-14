@@ -14,7 +14,6 @@ namespace PhotographyOverlayAttempt2.Views
     {
         public ResultView(OverlayImage newImage)
         {
-            //var newImage = new OverlayImage();
             InitializeComponent();
             BindingContext = newImage;
         }

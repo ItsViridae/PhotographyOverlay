@@ -3,11 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:converter="clr-namespace:PhotographyOverlayAttempt2.Converters"
              mc:Ignorable="d"
              x:Class="PhotographyOverlayAttempt2.CustomRenderers.GetImagePage">
-    <ContentPage.Content>
-        <StackLayout>
-            <Label Text="I should Display a Image you have selected Here... Soon" />
-        </StackLayout>
-    </ContentPage.Content>
+    
+    <ContentPage.Resources>
+        <converter:BytesToImageConverter x:Key="ToImage" />
+    </ContentPage.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <!-- before:"2*" 2/3 of grid -->
+            <RowDefinition Height="Auto" />
+            <!--  before:"*" 1/3 of grid -->
+        </Grid.RowDefinitions>
+        <Image Source="{Binding PhotoBytes, Converter={StaticResource ToImage}}" Aspect="AspectFill" />
+        
+        <Label Grid.Row="1" HorizontalOptions="Center" FontAttributes="Bold" Margin="10" Text="Result View Text"/>
+    </Grid>
 </ContentPage>

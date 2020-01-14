@@ -1,4 +1,5 @@
-﻿using Plugin.Media;
+﻿using PhotographyOverlayAttempt2.Models;
+using Plugin.Media;
 using Plugin.Media.Abstractions;
 using SkiaSharp;
 using SkiaSharp.Views;
@@ -21,25 +22,14 @@ namespace PhotographyOverlayAttempt2.SkSharpExample
         SKBitmap ImageBitmap { get; set; }
         Stream PhotoStream { get; set; }
         MediaFile PhotoFile { get; set; }
+        private byte[] _bytes { get; set; }
 
-        public ImagePage()
+        public ImagePage(ImageFile image)
         {
             InitializeComponent();
 
-            Assembly assembly = GetType().GetTypeInfo().Assembly;
-
-            // Load 1 bitmaps for the overlay Image
-            GetPhotoForStream();
-
-            if(PhotoStream == null)
-            {
-                PhotoStream = PhotoFile.GetStream();
-            }
-
-            using (Stream stream = new MemoryStream())
-            {
-                ImageBitmap = SKBitmap.Decode(stream);
-            }
+            _bytes = image.PhotoBytes;
+            ImageBitmap = image.ImageBitmap;
         }
 
         void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
@@ -77,10 +67,6 @@ namespace PhotographyOverlayAttempt2.SkSharpExample
                 //canvas.DrawBitmap(imageBitmap, rect, paint);
             }
         }
-        public async Task GetPhotoForStream()
-        {
-            var photo = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
-            PhotoFile = photo;
-        }
+        
     }
 }

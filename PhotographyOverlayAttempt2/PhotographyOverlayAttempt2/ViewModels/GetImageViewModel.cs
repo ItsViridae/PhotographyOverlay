@@ -1,5 +1,6 @@
 ﻿using PhotographyOverlayAttempt2.Models;
 using PhotographyOverlayAttempt2.Views;
+using PhotographyOverlayAttempt2.CustomRenderers;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
@@ -9,12 +10,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
+using PhotographyOverlayAttempt2.SkSharpExample;
+using SkiaSharp;
 
 namespace PhotographyOverlayAttempt2.ViewModels
 {
     public class GetImageViewModel : ViewModel
     {
+        SKBitmap _imageBitmap { get; set; }
         private byte[] _bytes;
+
         public GetImageViewModel()
         {
             var empty = new object();
@@ -37,19 +42,29 @@ namespace PhotographyOverlayAttempt2.ViewModels
                 return;
             }
 
-            var stream = photo.GetStream();
-            _bytes = ReadFully(stream);
+            var currentStream = photo.GetStream();
+            _bytes = ReadFully(currentStream);
 
-            var imageToView = new OverlayImage()
+            using (Stream stream = new MemoryStream(_bytes))
             {
-                PhotoBytes = _bytes
+                _imageBitmap = SKBitmap.Decode(stream);
+            }
+
+            var imageToView = new ImageFile()
+            {
+                PhotoBytes = _bytes,
+                ImageBitmap = _imageBitmap
             };
+            
 
-            //do somthing ... like show the image
-            var view = new ResultView(imageToView);
-            ((OverlayImageViewModel)view.BindingContext).Initialize(imageToView);
+            //var view = new ResultView(imageToView);
+            //((OverlayImageViewModel)view.BindingContext).Initialize(imageToView);
+            var imagePage = new ImagePage(imageToView);
+            Navigation.PushAsync(imagePage);
 
-            Navigation.PushAsync(view);
+            //((OverlayImageViewModel)overlayImageView.BindingContext).Initialize(imageToView);
+            //breaks before Navigation
+            //Navigation.PushAsync(overlayImageView);
         }
 
         private byte[] ReadFully(Stream inputStream)

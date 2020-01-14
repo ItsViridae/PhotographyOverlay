@@ -13,7 +13,6 @@ namespace PhotographyOverlayAttempt2
         public App()
         {
             InitializeComponent();
-
         }
 
         protected override void OnStart()

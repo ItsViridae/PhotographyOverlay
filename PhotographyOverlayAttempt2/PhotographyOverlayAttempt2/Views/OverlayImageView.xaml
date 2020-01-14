@@ -9,25 +9,18 @@
              Title="Overlay Image Should appear">
 
     <ContentPage.Resources>
-        <converters:BytesToImageConverter x:Key="ToImage" />
         <converters:BytesToImageConverter x:Key="OverlayImage" />
     </ContentPage.Resources>
 
     <ContentPage.Content>
-        <StackLayout>
-            <StackLayout>
-                <Label Text="OverlayImageView"/>
-                <Image Source="{Binding PhotoBytes, Converter={StaticResource OverlayImage}}" Aspect="AspectFill" Opacity="80"/>
-            </StackLayout>
-            
-            <StackLayout>
-                <Image Source="{Binding PhotoBytes, Converter={StaticResource ToImage}}" Aspect="AspectFill" Opacity="100"/>
-            </StackLayout>
-            
+        <Grid>
+            <Label Text="OverlayImageView"/>
+            <Image Source="{Binding PhotoBytes, Converter={StaticResource OverlayImage}}" Aspect="AspectFill"/>
+
             <Button BackgroundColor="DodgerBlue"
                 FontSize="30"
                 Text="Set And Continue"
                 TextColor="White"/>
-        </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
