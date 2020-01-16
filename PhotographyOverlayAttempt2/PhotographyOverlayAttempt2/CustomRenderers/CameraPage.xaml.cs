@@ -1,5 +1,6 @@
 ﻿using PhotographyOverlayAttempt2.CustomViews;
 using PhotographyOverlayAttempt2.Models;
+using PhotographyOverlayAttempt2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,25 +16,18 @@ namespace PhotographyOverlayAttempt2.CustomRenderers
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CameraPage : ContentPage
     {
+        public CustomImageView Viewer => ImageViewer;
+
         public CameraPage()
         {
             InitializeComponent();
-            CameraPreview.PictureFinished += OnPictureFinished;
         }
 
-        void OnCameraClicked(object sender, EventArgs e)
+        private void OnClick_PickPhoto(object sender, EventArgs e)
         {
-            CameraPreview.CameraClick.Execute(null);
-        }
-
-        private void OnPictureFinished()
-        {
-            DisplayAlert("Confirm", "Picture Taken", "", "Ok");
-        }
-
-        private async void OnClick_CancelPhotoFeed(object sender, EventArgs e)
-        {
-            await CameraPreview.Navigation.PushAsync(new GetImagePage());
+            var imageViewModel = new GetImageViewModel();
+            imageViewModel.PickPhoto.Execute(null);
+            //await CameraPreview.Navigation.PushAsync(imageViewModel);
         }
     }
 }

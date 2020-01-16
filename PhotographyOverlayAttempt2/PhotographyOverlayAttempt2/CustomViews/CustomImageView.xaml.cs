@@ -22,7 +22,6 @@ namespace PhotographyOverlayAttempt2.CustomViews
         public CustomImageView()
         {
             InitializeComponent();
-            BindingContext = new GetImageViewModel();
         }
 
 
@@ -33,6 +32,10 @@ namespace PhotographyOverlayAttempt2.CustomViews
 
         void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
+            if (_bytes == null)
+                return;
+            
+
             SKImageInfo info = args.Info;
             SKSurface surface = args.Surface;
             SKCanvas canvas = surface.Canvas;
@@ -51,12 +54,18 @@ namespace PhotographyOverlayAttempt2.CustomViews
             // Get progress value from Slider
             float progress = (float)progressSlider.Value;
 
-            // Display two bitmaps with transparency
+            // Display one bitmaps with transparency
             using (SKPaint paint = new SKPaint())
             {
                 paint.Color = paint.Color.WithAlpha((byte)(0xFF * (1 - progress)));
                 canvas.DrawBitmap(ImageBitmap, rect, paint);
             }
+        }
+        public void Initialize(ImageFile image)
+        {
+            _bytes = image.PhotoBytes;
+            ImageBitmap = image.ImageBitmap;
+            canvasView.InvalidateSurface();
         }
     }
 }

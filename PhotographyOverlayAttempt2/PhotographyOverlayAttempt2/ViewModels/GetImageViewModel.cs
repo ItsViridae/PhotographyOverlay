@@ -12,6 +12,7 @@ using System.Windows.Input;
 using Xamarin.Forms;
 using PhotographyOverlayAttempt2.SkSharpExample;
 using SkiaSharp;
+using PhotographyOverlayAttempt2.CustomViews;
 
 namespace PhotographyOverlayAttempt2.ViewModels
 {
@@ -19,11 +20,10 @@ namespace PhotographyOverlayAttempt2.ViewModels
     {
         SKBitmap _imageBitmap { get; set; }
         private byte[] _bytes;
+        public bool hasPicture;
 
         public GetImageViewModel()
         {
-            var empty = new object();
-            PickPhoto.Execute(empty);
         }
 
         public ICommand PickPhoto => new Command(async () =>
@@ -55,16 +55,11 @@ namespace PhotographyOverlayAttempt2.ViewModels
                 PhotoBytes = _bytes,
                 ImageBitmap = _imageBitmap
             };
-            
 
-            //var view = new ResultView(imageToView);
-            //((OverlayImageViewModel)view.BindingContext).Initialize(imageToView);
-            var imagePage = new ImagePage(imageToView);
-            Navigation.PushAsync(imagePage);
-
-            //((OverlayImageViewModel)overlayImageView.BindingContext).Initialize(imageToView);
-            //breaks before Navigation
-            //Navigation.PushAsync(overlayImageView);
+            var cameraPage = new CameraPage();
+            cameraPage.Viewer.Initialize(imageToView);
+            Navigation.PopAsync();
+            Navigation.PushAsync(cameraPage);
         }
 
         private byte[] ReadFully(Stream inputStream)

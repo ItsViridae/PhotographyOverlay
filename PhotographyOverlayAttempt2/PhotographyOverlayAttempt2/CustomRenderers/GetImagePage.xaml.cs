@@ -17,7 +17,6 @@ namespace PhotographyOverlayAttempt2.CustomRenderers
         public GetImagePage()
         {
             InitializeComponent();
-            BindingContext = new GetImageViewModel();
         }
     }
 }
