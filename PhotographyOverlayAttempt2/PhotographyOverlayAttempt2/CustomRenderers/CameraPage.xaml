@@ -17,7 +17,7 @@
                     VerticalOptions="FillAndExpand"
                     Grid.Column="0" Grid.Row="0">
         </customViews:CameraPreview>
-        <customViews:CustomImageView x:Name="ImageViewer"/>
+        <customViews:CustomImageView x:Name="ImageViewer"       VerticalOptions="Start" />
         <customViews:ButtonView 
             VerticalOptions="End" 
             x:Name="PhotoButton"/>

@@ -7,17 +7,16 @@
              xmlns:skia="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
              mc:Ignorable="d"
              x:Class="PhotographyOverlayAttempt2.CustomViews.CustomImageView">
-    
+
     <ContentView.Content>
-        <StackLayout>
+        <StackLayout InputTransparent="true">
             <skia:SKCanvasView x:Name="canvasView"
                            VerticalOptions="FillAndExpand"
-                           PaintSurface="OnCanvasViewPaintSurface" />
+                           PaintSurface="OnCanvasViewPaintSurface"      InputTransparent="false"/>
             <Slider x:Name="progressSlider"
-                Margin="10"
-                ValueChanged="OnSliderValueChanged" />
+                    VerticalOptions="Start"
+                    Margin="10"
+                    ValueChanged="OnSliderValueChanged" />
         </StackLayout>
     </ContentView.Content>
-    
-    
 </ContentView>
