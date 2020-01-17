@@ -7,23 +7,42 @@
              mc:Ignorable="d"
              x:Class="PhotographyOverlayAttempt2.CustomRenderers.CameraPage">
 
-    <Grid>
+    <Grid BackgroundColor="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        
         <customViews:CameraPreview 
                     x:Name="CameraPreview"           
                     BackgroundColor="Black"
                     HorizontalOptions="FillAndExpand"
-                    Camera="Front"                                         
-                    Margin="0,0,0,0"
+                    Camera="Front"
                     VerticalOptions="FillAndExpand"
-                    Grid.Column="0" Grid.Row="0">
-        </customViews:CameraPreview>
-        <customViews:CustomImageView x:Name="ImageViewer"       VerticalOptions="Start" />
-        <customViews:ButtonView 
-            VerticalOptions="End" 
-            x:Name="PhotoButton"/>
+                    Grid.Row="1" Grid.ColumnSpan="2" />
+
+        <customViews:CustomImageView 
+                x:Name="ImageViewer"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+            Grid.RowSpan="3"/>
+        
+        <customViews:ButtonView
+                    x:Name="PhotoButton"
+                    VerticalOptions="Fill"
+                    HorizontalOptions="Fill"
+                    Grid.ColumnSpan="2"
+                    Grid.Row="2" 
+                    Grid.Column="0" />
+
         <Button VerticalOptions="End" 
                 HorizontalOptions="End" 
                 Clicked="OnClick_PickPhoto" 
-                Text="Pick"/>
+                Text="Pick"
+                Grid.Row="2"
+                Grid.Column="1"/>
     </Grid>
 </ContentPage>

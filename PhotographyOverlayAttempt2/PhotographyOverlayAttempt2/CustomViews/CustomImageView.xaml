@@ -9,14 +9,15 @@
              x:Class="PhotographyOverlayAttempt2.CustomViews.CustomImageView">
 
     <ContentView.Content>
-        <StackLayout InputTransparent="true">
-            <skia:SKCanvasView x:Name="canvasView"
-                           VerticalOptions="FillAndExpand"
-                           PaintSurface="OnCanvasViewPaintSurface"      InputTransparent="false"/>
+        <StackLayout>
             <Slider x:Name="progressSlider"
                     VerticalOptions="Start"
-                    Margin="10"
+                    BackgroundColor="Black"
                     ValueChanged="OnSliderValueChanged" />
+            <skia:SKCanvasView x:Name="canvasView"
+                           VerticalOptions="FillAndExpand"
+                           HorizontalOptions="FillAndExpand"
+                           PaintSurface="OnCanvasViewPaintSurface"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

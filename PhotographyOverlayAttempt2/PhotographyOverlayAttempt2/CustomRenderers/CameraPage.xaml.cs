@@ -27,7 +27,6 @@ namespace PhotographyOverlayAttempt2.CustomRenderers
         {
             var imageViewModel = new GetImageViewModel();
             imageViewModel.PickPhoto.Execute(null);
-            //await CameraPreview.Navigation.PushAsync(imageViewModel);
         }
     }
 }

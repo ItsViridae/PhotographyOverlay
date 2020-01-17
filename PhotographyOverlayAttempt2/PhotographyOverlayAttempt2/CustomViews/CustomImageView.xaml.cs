@@ -34,7 +34,6 @@ namespace PhotographyOverlayAttempt2.CustomViews
         {
             if (_bytes == null)
                 return;
-            
 
             SKImageInfo info = args.Info;
             SKSurface surface = args.Surface;
