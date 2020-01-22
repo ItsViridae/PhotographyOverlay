@@ -67,6 +67,7 @@ namespace PhotographyOverlayAttempt2.ViewModels
         {
             var photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions()
             {
+                SaveToAlbum = true,
                 DefaultCamera = CameraDevice.Rear
             });
 

@@ -20,25 +20,25 @@ namespace PhotographyOverlayAttempt2.SkSharpExample
     public partial class ImagePage : ContentPage
     {
         SKBitmap ImageBitmap { get; set; }
-        Stream PhotoStream { get; set; }
-        MediaFile PhotoFile { get; set; }
-        private byte[] _bytes { get; set; }
+        public byte[] Bytes { get; set; }
 
         public ImagePage(ImageFile image)
         {
             InitializeComponent();
 
-            _bytes = image.PhotoBytes;
+            Bytes = image.PhotoBytes;
             ImageBitmap = image.ImageBitmap;
         }
 
         void OnSliderValueChanged(object sender, ValueChangedEventArgs args)
         {
+            // refresh Surface When Slider Changes
             canvasView.InvalidateSurface();
         }
 
         void OnCanvasViewPaintSurface(object sender, SKPaintSurfaceEventArgs args)
         {
+            // Initial setup
             SKImageInfo info = args.Info;
             SKSurface surface = args.Surface;
             SKCanvas canvas = surface.Canvas;
@@ -57,14 +57,11 @@ namespace PhotographyOverlayAttempt2.SkSharpExample
             // Get progress value from Slider
             float progress = (float)progressSlider.Value;
 
-            // Display two bitmaps with transparency
+            // Display One bitmap with transparency
             using (SKPaint paint = new SKPaint())
             {
                 paint.Color = paint.Color.WithAlpha((byte)(0xFF * (1 - progress)));
                 canvas.DrawBitmap(ImageBitmap, rect, paint);
-
-                //paint.Color = paint.Color.WithAlpha((byte)(0xFF * progress));
-                //canvas.DrawBitmap(imageBitmap, rect, paint);
             }
         }
         

@@ -23,7 +23,7 @@ namespace PhotographyOverlayAttempt2.CustomViews
             // TODO: #7) Make Button Save and Photo 
             ((FlexButtonViewModel)BindingContext).IsButtonEnabled = !((FlexButtonViewModel)BindingContext).IsButtonEnabled;
             ((FlexButtonViewModel)BindingContext).ButtonClickedCommand.ChangeCanExecute();
-            //await ((FlexButtonViewModel)BindingContext).TakePhotoTask();
+            ((FlexButtonViewModel)BindingContext).TakePhoto.Execute(null);
         }
     }
 }

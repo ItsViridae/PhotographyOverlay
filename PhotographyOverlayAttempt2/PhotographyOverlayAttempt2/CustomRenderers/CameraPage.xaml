@@ -23,12 +23,12 @@
                     Grid.Row="1" Grid.ColumnSpan="2" />
 
         <customViews:CustomImageView 
-                x:Name="ImageViewer"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
-                Grid.Row="0"
-                Grid.ColumnSpan="2"
-            Grid.RowSpan="3"/>
+                    x:Name="ImageViewer"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Grid.RowSpan="3"/>
         
         <customViews:ButtonView
                     x:Name="PhotoButton"

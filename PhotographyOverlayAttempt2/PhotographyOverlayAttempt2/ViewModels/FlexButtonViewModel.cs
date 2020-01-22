@@ -9,6 +9,7 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using Xamarin.Forms;
 
 namespace PhotographyOverlayAttempt2.ViewModels
@@ -30,6 +31,17 @@ namespace PhotographyOverlayAttempt2.ViewModels
         {
             Application.Current.MainPage.DisplayAlert("Hello from the View Model", "The Flex Button rocks!", "Yeah");
         }, () => IsButtonEnabled));
+
+        public ICommand TakePhoto => new Command(async () =>
+        {
+            var photo = await CrossMedia.Current.TakePhotoAsync(new StoreCameraMediaOptions()
+            {
+                //Saving the Image, but forced to use Default Camera
+                // TODO: MAybe Change to not use Default Camera after MVP
+                DefaultCamera = CameraDevice.Rear,
+                SaveToAlbum = true
+            });
+        });
 
         // Implementation of INotifyPropertyChanged
         public event PropertyChangedEventHandler CustomPropertyChanged;
